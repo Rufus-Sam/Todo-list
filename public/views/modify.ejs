@@ -1,0 +1,46 @@
+<%-include("./partials/header.ejs")%>
+
+    <div class="ui main text container segment">
+        <div class="ui huge header">Modify TASK</div>
+        <form class="ui form" action="/modify/<%=todoModify._id%>" method="POST">
+            <div>
+                <label>Title</label>
+                <input type="text" name="todo[title]" placeholder="Title" value="<%=todoModify.title%>" required>
+            </div>
+            <div>
+                <label>Todo Content</label>
+                <textarea name="todo[body]" required><%=todoModify.body%></textarea>
+            </div>
+            <div>
+                <label for="meeting-time">Deadline:</label>
+                <input type="datetime-local" id="meeting-time" name="todo[deadline]" required>
+            </div>
+
+            <div>
+                <label>Time taken to complete</label>
+                <div>
+                    <label for="hour">in hours</label>
+                    <input type="number" id="hour" name="todo[hours]" min="0" value="<%=todoModify.hours%>" required>
+                    <label for="minutes">in minutes</label>
+                    <input type="number" id="minutes" name="todo[minutes]" min="0" max="59" value="<%=todoModify.minutes%>" required>
+                </div>
+            </div>
+
+            <div>
+                <label for="priority">Choose priority:</label>
+
+                <select name="todo[priority]" id="priority" required>
+                    <!-- <option value="">--Please choose an option--</option> -->
+                    <option value="1">High</option>
+                    <option value="0">Medium</option>
+                    <option value="-1">Low</option>
+
+                </select>
+            </div>    
+
+            <input class="ui violet basic big button" type="submit" value="Apply Changes!">
+            <a class="ui violet basic big button" href="/homepage">Back</a>
+        </form>
+    </div>
+
+<%-include("./partials/footer.ejs")%>

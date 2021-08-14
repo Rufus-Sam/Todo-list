@@ -1,0 +1,31 @@
+<%-include("./partials/header.ejs")%>
+
+    <div class="ui main text container segment">
+        <div class="ui huge header">Settings</div>
+        <form class="ui form" action="/settings" method="POST">
+
+            <div>
+                <div>
+                    <label for="hour">Quantum for Round Robin: </label>
+                    <input type="number" id="hour" name="quantum" min="1" max="24" value="<%=quantum%>" required>
+                    <label for="from">Start of working Hour: </label>
+                    <input type="time" id="from" name="startHour" step="3600" value="<%=start%>" required>
+
+                    <label for="minutes">Number of working Hours per Day: </label>
+                    <input type="number" id="minutes" name="workingHoursPerDay" min="1" max="24" value="<%=hrs%>" required>
+                </div>
+                <div>
+                    <% if (failed) { %>
+                        <div class="row" style="margin: 10px 0; color: red;">
+                            <p>Please enter valid details.</p>
+                        </div>
+                        <% } %>
+                </div>
+            </div>    
+
+            <input class="ui violet basic big button" type="submit">
+            <a class="ui violet basic big button" href="/homepage">Back</a>
+        </form>
+    </div>
+
+<%-include("./partials/footer.ejs")%>

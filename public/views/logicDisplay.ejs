@@ -1,0 +1,102 @@
+<%-include("./partials/header.ejs")%>
+
+    <!-- Full Calendar -->
+    <script>
+
+        var data =<%-JSON.stringify(data)%>;
+        var startHrs = <%-JSON.stringify(startHrs)%>;
+        var endHrs = <%-JSON.stringify(endHrs)%>;
+        document.addEventListener('DOMContentLoaded', function() {
+
+            
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            initialDate: '2021-05-22',
+            slotMinTime: startHrs + ":00:00",
+            slotMaxTime: endHrs + ":00:00",
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            events: data
+            });
+
+            calendar.render();
+        });
+
+    </script>
+
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="ui main text container">
+                <div class="ui huge header"><%=name%></div>
+                <div > Avg. Turnaround Time: <%=tat.toFixed(2)%></div>
+                <div > Avg. Waiting Time: <%=wt.toFixed(2)%></div>
+                <div class="ui top attached segment">
+                    <div class="ui divided items">
+                        <% algo.forEach(function(todo){ %>
+                            <div class="item">
+                                <div class="content">
+                                    <div>
+                                        <span>
+                                            <b>Task Name:</b>
+                                            <%=todo.title%>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <b>Task Description:</b>
+                                            <%=todo.body%>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <b>Estimation time to complete the Task: </b>
+                                        <span> <%=Math.floor(todo.bt)%> </span>
+                                        <span> hours </span>
+                                        <span> <%=Math.round((todo.bt % 1)*60)%></span>
+                                        <span> minutes </span>
+                                        
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <b>Task Priority:</b>
+                                            <%=todo.priority%>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <b>From: </b>
+                                            <%=String(todo.from.dd) + '/' + String(todo.from.mm) + '/' + String(todo.from.yy) + '---'%>
+                                            <%= Math.floor(todo.from.hh) + Number(startHrs)%>
+                                            <span> hours </span>
+                                            <%= Math.round((todo.from.hh % 1) * 60 ) %>
+                                            <span> minutes </span>
+        
+                                            <b>To: </b>
+                                            <%=String(todo.to.dd) + '/' + String(todo.to.mm) + '/' + String(todo.to.yy) + '---'%>
+                                            <%= Math.floor(todo.to.hh) + Number(startHrs)%>
+                                            <span> hours </span>
+                                            <%= Math.round((todo.to.hh % 1) * 60 ) %>
+                                            <span> minutes </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+        
+                            <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-xl-6">
+            <div style="margin: 5% 5%; border: 1px solid gray;" id='calendar'></div>
+        </div>
+    </div>
+
+<%-include("./partials/footer.ejs")%>

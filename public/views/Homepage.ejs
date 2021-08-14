@@ -1,0 +1,89 @@
+<%-include("./partials/header.ejs")%>
+    <header class = "jumbotron text-center" >
+        <div class = "container">
+            <h1> Welcome to Todo planner! </h1>
+            <p style="font-size: 1.2em;">Use our app to make your life more efficient</p>
+        </div>
+        <div >
+            <a class = "btn btn-primary btn-lg" href="/new"> <i class="fa fa-plus" aria-hidden="true"></i> Add a task </a>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-3" style="border-right: 1px solid black; padding-left: 5%;">
+			<div id="googleTrans">
+				<label>Use with your favourite Language</label>
+				<div id="google_translate_element"></div>
+
+				<script type="text/javascript">
+				function googleTranslateElementInit() {
+				  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+				}
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			</div>
+        </div>
+        <div>
+            <div class="col-md-9">
+                <% if(user.todo.length) {%>
+                <div class="ui main text container">
+                    <div class="ui huge header">All TODOS</div>
+                    <div class="ui top attached segment">
+                        <div class="ui divided items">
+                            <% user.todo.forEach(function(todo){ %>
+                                <div class="item">
+                                    <div class="content">
+                                        <div>
+                                            <span>
+                                                <b>Task Name:</b>
+                                                <%=todo.title%>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <b>Task Description:</b>
+                                                <%=todo.body%>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <b>Task Deadline:</b>
+                                                <%=todo.deadline.toLocaleTimeString()%>
+                                                <span> - </span>
+                                                <%=todo.deadline.toLocaleDateString()%>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <b>Estimation time to complete the Task: </b>
+                                            <span> <%=todo.hours%> </span>
+                                            <span> hours </span>
+                                            <span> <%=todo.minutes%></span>
+                                            <span> minutes </span>
+                                            
+                                        </div>
+        
+                                        <div>
+                                            <script>
+                                                function YNconfirm() { 
+                                                if (window.confirm('Are you sure want to delete the task?')){
+                                                window.location.href = "/delete/<%=todo._id%>";
+                                                }}
+                                            </script>
+                                            <a href="/delete/<%=todo._id%>" onclick="YNconfirm(); return false;"><i class="fa fa-trash fa-2x " aria-hidden="true"></i> Done</a>
+                                            <span> 	&nbsp	&nbsp	&nbsp</span>
+                                            <a href="/modify/<%=todo._id%>"><i class="fa fa-edit fa-2x" aria-hidden="true"></i> Modify Task</a>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <% }); %>
+                        </div>
+                    </div>
+        
+                </div>
+                <% } %>
+            </div>
+
+        </div>
+    </div>
+
+<%-include("./partials/footer.ejs")%>

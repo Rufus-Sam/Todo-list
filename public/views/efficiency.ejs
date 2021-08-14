@@ -1,0 +1,45 @@
+<%-include("./partials/header.ejs")%>
+
+    <style>
+        table, th, td {
+        border: 1px solid gray;
+        font-size: 20px;
+        padding: 5px;
+        }
+
+    </style>
+
+    <div>
+        <div class="ui main text container">
+            <div class="ui huge header"> Efficiency </div>
+            <table>
+                <tr>
+                <th>Algorithm</th>
+                <th>Turnaround Time</th>
+                <th>Waiting Time</th>
+                </tr>
+                <tr>
+                <td> <b>FCFS</b> </td>
+                <td><%=wt_tat[0].toFixed(2)%></td>
+                <td><%=wt_tat[1].toFixed(2)%></td>
+                </tr>
+                <tr>
+                <td> <b>SJF</b> </td>
+                <td><%=wt_tat[2].toFixed(2)%></td>
+                <td><%=wt_tat[3].toFixed(2)%></td>
+                </tr>
+                <tr>
+                <td> <b>Priority</b> </td>
+                <td><%=wt_tat[4].toFixed(2)%></td>
+                <td><%=wt_tat[5].toFixed(2)%></td>
+                </tr>
+                <tr>
+                <td> <b>Round Robin</b> </td>
+                <td><%=wt_tat[6].toFixed(2)%></td>
+                <td><%=wt_tat[7].toFixed(2)%></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<%-include("./partials/footer.ejs")%>

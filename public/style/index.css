@@ -1,0 +1,86 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#title {
+  background-color: #262829;
+  color: white;
+}
+.navbar {
+  background-color: #262829;
+}
+
+.container-fluid {
+  padding: 3% 15%;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+}
+.nav-item {
+  padding: 10px 18px;
+}
+.download-button {
+  margin: 5% 3% 5% 0;
+  color: blue;
+}
+#title-row {
+  padding: 5% 10%;
+}
+
+#features {
+  padding: 7% 15%;
+}
+.feature-box {
+  text-align: center;
+  padding: 6%;
+}
+h3 {
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+p {
+  color: #8f8f8f;
+}
+.icon {
+  color: #431fe794;
+  margin-bottom: 1rem;
+}
+.icon:hover {
+  color: #ff4c68;
+}
+
+/* Testimonial Section */
+#testimonials {
+  text-align: center;
+  background-color: #262829;
+  color: #fff;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+.carousel-item {
+  padding: 8% 15%;
+}
+
+#footer {
+  text-align: center;
+  padding-top: 7%;
+  padding-bottom: 3%;
+}
+
+.footer-icons {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.footer-icons:hover {
+  color: #000;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        ToDo Planner
+    </title>
+
+    <!-- semantic -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" type="text/css" media="all">   
+
+    <!-- google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+    
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"crossorigin="anonymous"></script>
+
+    <!-- fullcalendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js"></script>
+
+    <!-- Todo icon -->
+    <link rel="icon" type="image/png" href="../../images/icon.jpg">
+
+    <!-- CSS -->
+    
+    <style>
+      .navbar-dark .navbar-nav .nav-link{
+          color: white;
+          font-size: 1.2em;
+
+      }
+      #brand{
+          padding-right: 1%;
+          color: white;
+          font-size: 1.2em;
+      }
+      body {
+          font-family: 'ABeeZee';
+      }
+    </style>
+
+</head>
+
+<body>     
+    <!--/.Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 mb-5">
+        <div id="brand"><i class="code icon"></i>TodoList</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item "> <a href="/new" class="nav-link">New</a>                </li>
+            <li class="nav-item"> <a href="/homepage" class="nav-link">Dashboard</a>     </li>
+            <li class="nav-item"> <a href="/algo/ffcs" class="nav-link">FCFS</a>         </li>    
+            <li class="nav-item"> <a href="/algo/sjf" class="nav-link">SJF</a>           </li>
+            <li class="nav-item"> <a href="/algo/priority" class="nav-link">Priority</a> </li>
+            <li class="nav-item"> <a href="/algo/rr" class="nav-link">Round Robin</a>    </li>
+            <li class="nav-item"> <a href="/efficiency" class="nav-link">Efficiency</a>  </li>
+            <li class="nav-item"> <a href="/settings" class="nav-link">Settings</a>      </li>
+          </ul>
+          <ul class="nav navbar-right navbar-nav ">
+              <li class="nav-item"> <a href="#" class="nav-link">Welcome <%=Usrnm%></a> </li>
+              <li class="nav-item"> <a href="/" class="nav-link">Log Out </a> </li>
+          </ul>
+
+        </div>
+      </nav>
